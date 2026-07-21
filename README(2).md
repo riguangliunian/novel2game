@@ -1,7 +1,5 @@
 # 互动漫剧游戏生成智能体（Interactive Manhua Game Agent）
 
-> **v1.1（P0 MVP + 行业/竞品/剧本格式补充）· 2026-07-21**
-
 > **痛点**：短漫剧行业在 AI 加持下已把「看」的内容做到极致降本，但「玩」的互动漫剧仍靠人工手搓分支剧本与数值，一部多分支互动剧的编剧+策划周期以周计、门槛高，存量漫剧编辑和小说作者难以低成本转型。
 >
 > **方案**：一个「互动漫剧游戏生成智能体」——上传小说自动改编成多分支互动剧本，或输入主题/人物关键词从零原创，通过多 Agent 流水线产出「分支剧情 + 对话选择 + 穿插小游戏」的可玩互动漫剧游戏。
@@ -46,37 +44,6 @@
 3. **引导式补全**：面对 ToC 的「我也说不清想要什么」，用交互式澄清把关键词补全成高质量设定，降低生成废稿率。
 4. **动静结合演出，不是妥协是差异化**：Galgame、橙光的商业实践已经证明「日常静态 + 关键动态」才是最好用的互动叙事语言。本产品把动静组合上升为叙事一等公民和成本一等公民——静图给日常对话、动效给情感转折、视频给高潮结局，同时对齐 C 端全静态 / 进阶局部动态 / ToB 全视频三档成本。
 
-### 1.3 行业机会补充：市场曲线、降本空间与火山产品栈启示
-
-三条曲线正在叠加，并且都与本产品强相关：
-
-| 赛道 | 关键数据 | 对本产品的意义 |
-| --- | --- | --- |
-| 中国微短剧大盘 | 2024 年约 **504.4 亿元**，同比 **+35%**；2025 年总产值接近 **900 亿元** | 已证明短剧内容消费成立，问题不再是有没有用户，而是内容是否差异化 |
-| AI 漫剧 | 2025 年约 **168 亿元**，另有口径测算 **189.8 亿元**，同比 **+80% ~ +276%** | 线性漫剧的 AI 生产已经跑通，互动化是下一层增量 |
-| 互动影游 / 互动剧 | 预计 2025 年突破 **50 亿元**，年均约 **+37%** | 用户已经为「叙事 + 互动 + 分支」付费，但制作重、供给少 |
-
-**关键判断**：AI 已把线性漫剧的降本做成硬能力，但「结构化分支 + 数值 + 可玩」仍未工业化，本产品切的正是这个空位。
-
-**成本结构启示**（来自火山引擎行业方案与案例口径）：
-
-- 表情包漫剧每分钟约 **50–150 元**，AI 漫剧每分钟约 **1000–3000 元**，AI 仿真人短剧每分钟 **1 万元以上**。
-- S 级剧目若走 AI 漫剧方案，可从约 **100 万** 压到 **10 万** 量级；100 集制作周期可缩到 **10–13 天**。
-- 对互动产品而言，真正贵的不只是「画面生成」，还包括**分支设计、玩法挂接、审核返工、引擎接入和反复调平**。因此我们在 P0 优先攻克的是文本与结构，而不是一上来做全自动视频化。
-
-**火山引擎产品栈里，与本 Agent 最相关的部分**：
-
-| 火山能力 | 适配环节 | 与当前 Agent 的关系 |
-| --- | --- | --- |
-| **豆包大模型 / 火山方舟 Ark** | 选题策划、剧本生成、分镜脚本、结构化输出 | 对应 Parser / Planner / Writer / Structurer 的模型底座 |
-| **Seedream（即梦）** | 角色三视图、立绘、场景、道具、分镜图 | 对应 Direction 产出的 `asset_prompt`，当前 README 已预留，代码尚未接素材生成 |
-| **Seedance** | 图生视频、文生视频、局部动效、运镜控制 | 对应 `staging=semi-dynamic/full-video` 的后续落地能力 |
-| **豆包 TTS / OmniHuman** | 旁白、配音、口型匹配 | 当前 schema 未建语音层字段，属于下一版补齐项 |
-| **Coze / 飞书多维表格** | 工作流编排、团队协作、资产回填 | 对应未来的可视化编辑器、素材回流、协同生产台 |
-| **TOS / CDN / VOD / MPS** | 资产存储、转码、分发、后处理 | 对应下一版素材生产与发布链路，不在 P0 MVP 中 |
-
-> **结论**：火山的强项不是单一模型，而是「LLM + 图像 + 视频 + 语音 + 云工作流」的全链路组合。当前仓库只实现其中的「剧本 / 分支 / 数值 / JSON 合约」层，是合理的 P0 切法。
-
 ---
 
 ## 2. 目标用户与使用场景
@@ -87,56 +54,6 @@
 | ToC：小说作者/爱好者 | 有创意或成稿，缺游戏化与工程能力 | 独自把创意落地成可玩游戏，无需团队 | 上传自己的小说或输入设定，生成可分享、可变现的互动漫剧游戏 |
 
 两类用户共用同一生成内核，差异在交付：ToB 侧重批量、可控、私有化与团队协作；ToC 侧重零门槛、引导式补全与一键分享。
-
-### 2.4 目标用户细分与调研洞察
-
-结合《互动影游｜客户调研提纲》与已记录的客户反馈，当前 README 原本缺少的不是「有没有用户」判断，而是**更细的分层、付费与偏好洞察**：
-
-| 细分用户 | 代表特征 | 对内容的核心偏好 | 对产品的直接要求 |
-| --- | --- | --- | --- |
-| 核心影游用户（Steam/主机/PC） | 核心圈层约 **8–15 万**，学生群体较多 | 叙事完整、结局差异大、分支决策有重量 | 不接受廉价拼接感，预算不能高到失去回本空间 |
-| 短剧内容消费用户 | 更习惯被动看内容，但愿意在关键节点轻互动 | 强情绪、强钩子、短反馈周期 | 互动不能太重，不能让用户「被迫学系统」 |
-| 女性向/情感向用户 | 对角色关系、情感站队、代入感敏感 | 恋爱、宫斗、悬疑、身份秘密、替身/救赎等高情绪题材 | 需要好感/关系变化可感知，不能只有纯逻辑推演 |
-| 剧情驱动型创作者 | 有小说或 IP，但不懂游戏设计 | 先保剧情，再补玩法 | 希望 AI 能把故事自动拆成可玩的节点和分支 |
-| 玩法增强型团队 | 已懂影游或小游戏制作 | 希望剧情之外有 QTE、搜证、推理等轻玩法 | 需要结构化输出可接引擎，支持后续扩玩法 |
-
-**关键用户洞察**：
-
-1. **互动影游和互动剧不是一回事**：访谈反馈里明确区分——仅有分支选项更接近互动剧；当加入 QTE、搜证、推理、道具等，才更接近「互动影游」。这意味着我们的产品定位不能只停留在「给剧本加 A/B 选项」。
-2. **内容与玩法的权重不是 50:50，而更接近 70:30**：调研记录里已有明确反馈——**70% 靠剧情，30% 靠玩法**。因此 P0 把重点放在写作质量、分支差异和数值挂接是对的；玩法层做轻，不宜喧宾夺主。
-3. **用户消费由“剧情驱动”起势，但会被“选择压力”强化留存**：情感、电车难题、站队、求生压力，是更适合放置关键分支的触发点，而不是机械地每隔 N 节点插一次选择。
-4. **QTE 得到正向评价，但必须服务剧情**：客户调研中明确提到 QTE 属于用户有正反馈的玩法，但也强调「需要为剧情服务，不强制，只能锦上添花」。这与本仓库当前 `minigame` 的轻量设计方向一致。
-5. **付费/变现层面需要预留 IAP 与 IAA 两种路线**：行业端 2025 年微短剧 IAA 占比已达 **66.3%**，但互动影游更偏 IAP（单品买断/章节解锁/高级结局）与订阅。也就是说，后续剧本 schema 最好能支持「广告解锁节点」「道具复活」「付费分支」这类商业化挂点。
-
-> **对设计的直接影响**：README 之前只描述了 ToB/ToC 两类大用户，却没把“剧情重于玩法”“轻互动优先”“QTE 要服务剧情”“商业化要支持分支/章节解锁”等产品判断写透。这些是会影响 MVP 方向的，不是琐碎补充。
-
-### 2.5 竞品分析
-
-参考行业文档与客户调研，可把竞品拆成三类：**传统互动叙事平台、AI 角色/影游工具、AI 漫剧生产平台**。目前市场上没有一家同时把「小说改编 + 原创 + 结构化数值 + 可运行 JSON + 动静结合演出」做完整。
-
-| 竞品 | 类型 | 定位 / 玩法 | 商业模式 / 强项 | 相对我们的优势 | 相对我们的差距 |
-| --- | --- | --- | --- | --- | --- |
-| **橙光 66RPG** | 传统 UGC 互动叙事平台 | 视觉小说、女性向、长线分支剧情；编辑器成熟 | 鲜花分成、IP 改编、作者生态强；历史上有 5100 万+ 用户、300 万作者 | 作者生态与分发心智最强，用户理解互动叙事 | 主要靠人工创作，缺少 AI 自动改编、自动数值和结构化导出 |
-| **易次元** | 互动阅读 / 视觉小说平台 | 偏女性向恋爱与互动阅读，内容消费体验成熟 | 平台分发、内容社区、长线运营 | UI/消费形态成熟，用户侧接受度高 | 仍以人工编辑为主，缺少小说→游戏自动化流水线 |
-| **Ren'Py / Galgame 引擎生态** | 引擎 / 开发框架 | 擅长视觉小说、分支脚本、静态立绘 + 文字 | 开源生态、低门槛上手、成品可运行 | 引擎层成熟，适合承接最终剧本 | 只解决“怎么跑”，不解决“怎么自动写”“怎么自动配数值” |
-| **猫箱 / Character.AI** | AI 角色互动 | 开放式角色对话、强陪伴与即时互动 | 订阅 / 平台流量 / 角色生态 | 强在自由对话、UGC 活跃、角色驱动强 | 缺结构化剧情树、缺关卡/数值/结局合约，不产可运行互动游戏 |
-| **Yoroll AI / Rotopus / Roto** | AI 互动影游 / 节点式创作工具 | 更接近 AI 互动视频 / 零代码影游生成 | 偏平台工具与视频化体验 | 离“互动影游”更近，适合展示式作品 | 更偏视频形态，中文漫剧创作、轻玩法数值、小说改编未见明显优势 |
-| **番茄小说 AI 真人互动剧 / AI 短剧平台** | 平台自营试水 | 依赖平台内容、真人/短剧资产做互动化 | 平台流量 + 自营内容 | 流量、IP 库、题材资源强 | 更像平台专项项目，不是开放给创作者的生产型 Agent |
-| **AI 漫剧平台（掌阅等）** | AI 漫剧生产平台 | 小说拆解、角色场景抽取、生图/生视频/配音 | 自动化生产效率高 | 线性漫剧生产链路成熟 | 大多停留在“看”，缺互动结构、数值系统与玩法挂接 |
-
-#### 我们相对竞品的优势
-
-1. **比橙光/易次元多了 AI 生成能力**：从小说改编、设定补全、支线规划到结构化输出都可自动化。
-2. **比猫箱/Character.AI 更可交付**：不是陪聊，而是输出可运行的剧情树、变量和结局合约。
-3. **比 AI 漫剧平台更“可玩”**：不止脚本和画面，还包含选择、小游戏、属性、解锁条件。
-4. **比纯视频型影游工具更适合低成本验证**：支持 static / semi-dynamic / full-video 三档，而不是一上来默认全视频。
-
-#### 我们当前的差距
-
-1. **没有成熟创作者社区和分发场**：这点与橙光/易次元差距明显。
-2. **素材生产尚未实装**：Direction 只打了 `asset_prompt`，并未接上 Seedream / Seedance / TTS。
-3. **缺少编辑器、模拟器与商业化挂点**：相比成熟平台，我们还停留在 P0 的“生成合约”阶段。
-4. **缺少用户向的攻略、档案、成就、回看等体验层能力**：而这些往往决定互动产品的可持续体验。
 
 ---
 
@@ -243,33 +160,6 @@
 3. **温度调控**：创意分支用较高温度扩大发散，一致性/结构环节用低温度收敛。
 4. **向量去重**：一致性校验 Agent 把每条支线向量化，与已有支线算相似度，超阈值判定雷同并打回重写；向量库同时承担长程记忆。
 
-### 4.4 架构改进建议（下一版）
-
-> 以下能力在行业方案、客户调研与参考剧本里都很重要，但**本 P0 MVP 未包含**，计划下一版补齐。
-
-| 下一版补齐项 | 来源依据 | 当前 7 Agent 覆盖情况 | 建议补法 |
-| --- | --- | --- | --- |
-| **审核合规 Agent / 审稿前后置** | 微短剧备案、AI 标识、敏感题材拦截；客户关心平台审核、题材风险 | **未覆盖**。当前 Consistency 只做一致性与去重，不做内容安全 / 版权 / 平台审核口径校验 | 在 Writer 后、Structurer 前增加合规审校层；输出敏感点、可替换建议、风险等级 |
-| **素材生产流水线实装** | 火山方案强调 Seedream / Seedance / TTS / OmniHuman 全链路 | **部分覆盖**。Direction 只生成 `asset_prompt`，未实际 dispatch | 新增 Asset Orchestrator，把 `asset_prompt` 转为图/视频/配音任务，并回填 asset_id / url |
-| **增量编辑与回流重生成** | 客户生产中存在多轮人工改稿、多节点审核调优 | **未覆盖**。当前是一次性生成，不支持“只改一个节点重新出后续” | 引入节点级 diff、局部重写、锁定节点、人工批注回流机制 |
-| **数值模拟器 / 预跑器** | 调研明确关注到达率、结局分布、卡点、平衡性 | **未覆盖**。README 有概念，代码里没有 simulator | 新增 Monte Carlo / 穷举预跑模块，输出不可达节点、分支偏斜、QTE 成功率建议 |
-| **工作流台 / 资产管理 / 协同基建** | 火山方案里的 Coze / 飞书多维表格 / TOS / CDN | **未覆盖**。当前仅 CLI + JSON | 下一版可做轻量创作台：剧本、角色、素材、审核、成片统一回填 |
-| **模型分工更贴近生产场景** | 火山案例区分 `doubao-seed-1.6-sc`（长文创意）与 `1.8`（严格遵循） | **部分覆盖**。当前只做通用角色路由 | 下一版把「创意 / 严格遵循 / 审核 / 分镜」拆成更细路由配置 |
-| **互动体验层能力** | 客户调研点名剧情结构图、道具、攻略、档案、读档体验 | **未覆盖** | 在 schema 与前端层新增剧情图、角色档案、存档点、结局图鉴 |
-
-**更具体地看，客户调研中提到的需求与当前 7 Agent 的映射关系**：
-
-| 客户诉求 / 流程要求 | 当前是否覆盖 | 说明 |
-| --- | --- | --- |
-| 小说 / IP 自动拆解 | ✅ 已覆盖 | Parser 已做 |
-| 支线结构与差异化 | ✅ 已覆盖 | Planner + Writer + Consistency |
-| QTE / 轻玩法嵌入 | ✅ 部分覆盖 | Gamification 仅支持轻量 `minigame`，没有复杂搜证 / 推理玩法 |
-| 道具影响后续分支 | ⚠️ 表达不足 | 目前 schema 无 inventory / item slot |
-| 结局到达率 / 分支模拟 | ❌ 未覆盖 | 只有设计描述，无代码实现 |
-| 可视化编辑 / 改稿回流 | ❌ 未覆盖 | 当前只有 CLI 生成 |
-| 审核 / 版号 / 平台发布顾虑 | ❌ 未覆盖 | 需新增合规与发布前校验链路 |
-| 多素材协同生产 | ❌ 未覆盖 | Direction 只是 prompt 生成，未进入资产生产台 |
-
 ---
 
 ## 5. 模型与 API 选型
@@ -288,8 +178,6 @@
 | 视频 / 动效生成（进阶档、全视频档） | Seedance 系列 / 可灵视频 | 承接局部动效与完整视频演出 | 仅对演出设计 Agent 标记为 semi-dynamic / full-video 的节点调用 |
 
 **接入方式**：模型路由层统一封装，按 Agent 的 profile 决定调用哪个模型；创意环节走高温度、校验/结构环节走低温度并强制 JSON。这样换模型或降级只改路由配置，不动业务链路。
-
-> 结合火山引擎行业案例，下一版可进一步细化为：**长网文 / 创意生成优先走 `doubao-seed-1.6-sc` 一类模型，审稿 / 大纲 / 严格结构遵循优先走 `doubao-seed-1.8` 一类模型**；与当前 README 的“按角色分配模型”原则完全一致，只是路由粒度更细。
 
 > 本初版代码通过 OpenAI-Compatible API 抽象了 LLM 调用，只要修改 `.env` 里的 `base_url` 就可以对接 OpenAI / DeepSeek / 火山方舟 / 智谱 / 阿里通义 等任意兼容 OpenAI 协议的推理服务。
 
@@ -326,230 +214,414 @@
 
 完整 Pydantic Schema 定义见 `src/manhua_agent/models.py`。
 
-### 6.1 剧本格式：当前 Schema 明细
+### 6.1 剧本格式：Schema 明细表（v1.1 基线，历史文档）
 
-#### 6.1.1 顶层对象
+> 本表描述 v1.0 → v1.1 的基线 Schema，作为历史文档保留；v1.2 的字段扩展见 **6.4**。
 
-| 对象 | 字段 | 类型 | 必填 | 含义 |
-| --- | --- | --- | --- | --- |
-| `GameOutput` | `schema_version` | `str` | 否 | Schema 版本，默认 `1.0` |
-|  | `title` | `str` | 是 | 作品标题 |
-|  | `logline` | `str` | 是 | 一句话简介 |
-|  | `genre` | `List[str]` | 否 | 类型标签 |
-|  | `variables` | `Dict[str, int]` | 否 | 全局变量初始值，如好感度/勇气/金钱 |
-|  | `story_tree` | `StoryTree` | 是 | 剧情树主体 |
-|  | `assets` | `Assets` | 否 | 素材清单，目前只含角色信息 |
-|  | `metadata` | `Dict[str, Any]` | 否 | 运行元信息，如节点数、分支数、档位 |
-
-#### 6.1.2 解析 / 规划阶段中间产物（当前代码内也有严格 Schema）
-
-| 对象 | 关键字段 | 说明 |
+| 顶层字段 | 类型 | 用途 |
 | --- | --- | --- |
-| `Character` | `name` / `role` / `persona` / `motivation` / `ref_image` | 人设卡，同时复用于 `assets.characters` |
-| `Worldview` | `era` / `location` / `rules` | 世界观信息 |
-| `StorySetting` | `title` / `logline` / `genre` / `worldview` / `characters` / `main_conflict` / `outline` | Parser 的完整设定包 |
-| `BranchSkeleton` | `id` / `label` / `conflict_source` / `ending_direction` / `key_props` / `beats` | Planner 产出的分支骨架 |
-| `StorySkeleton` | `variables` / `branches` / `choice_points` | 规划阶段完整输出 |
+| `schema_version` | string | 版本号，v1.1 基线固定为 `"1.0"`（v1.2 起改为 `"1.2"`） |
+| `title` / `logline` / `genre` | 基础元信息 | 作品名、简介、类型标签 |
+| `variables` | dict[str,int] | 全局属性表（好感度/勇气/金钱…） |
+| `story_tree.nodes` | list[Node] | 节点数组：`id / type / branch_id / character / content / choices / minigame / staging / emotion_intensity / asset_prompt` |
+| `story_tree.endings` | list[Ending] | 结局数组：`id / branch_id / title / unlock (str) / is_true_ending / is_hidden` |
+| `story_tree.start_node` | str | 起始节点 id |
+| `assets.characters` | list[Character] | 人设卡列表（v1.1 仅 characters） |
 
-#### 6.1.3 剧情树主体对象
+v1.1 已知问题详见 6.3「剧本格式：v1.1 → v1.2 演进记录」。
 
-| 对象 | 字段 | 类型 | 必填 | 含义 |
-| --- | --- | --- | --- | --- |
-| `StoryTree` | `nodes` | `List[Node]` | 是 | 全部剧情节点 |
-|  | `endings` | `List[Ending]` | 是 | 结局定义清单 |
-|  | `start_node` | `str` | 是 | 起始节点 id |
+### 6.3 剧本格式：v1.1 → v1.2 演进记录
 
-#### 6.1.4 Node 节点字段
+**v1.1 待优化清单**（现已解决 → 见 6.4）：
 
-| 字段 | 类型 | 必填 | 当前含义 | 备注 |
-| --- | --- | --- | --- | --- |
-| `id` | `str` | 是 | 节点唯一标识 | 如 `n_b_truth_01` |
-| `type` | `dialogue \| narration \| choice \| minigame \| ending` | 是 | 节点类型 | 代码里虽然声明了 `choice/minigame/ending`，当前样例主要由 `dialogue/narration/ending` 组成 |
-| `branch_id` | `Optional[str]` | 否 | 所属分支 ID | 用于分支聚合 |
-| `character` | `Optional[str]` | 否 | 发言角色 | 对白节点用；旁白一般为 `null` |
-| `content` | `str` | 是 | 节点正文 | 当前把对白 / 旁白 / 描述都塞在一个文本字段里 |
-| `choices` | `List[Choice]` | 否 | 当前节点可选项 | 默认空数组 |
-| `minigame` | `Optional[Minigame]` | 否 | 节点挂载的小游戏 | 当前为内嵌对象 |
-| `staging` | `static \| semi-dynamic \| full-video` | 否 | 演出档位 | Direction Agent 决定 |
-| `emotion_intensity` | `float` | 否 | 情绪强度 0–1 | 用于演出决策 |
-| `asset_prompt` | `Optional[str]` | 否 | 图/视频素材提示词 | 当前仅占位 |
-
-#### 6.1.5 Choice 选择项字段
-
-| 字段 | 类型 | 必填 | 含义 |
-| --- | --- | --- | --- |
-| `text` | `str` | 是 | 选项文案 |
-| `effects` | `Dict[str, int]` | 否 | 变量增减，如 `{"勇气": 5}` |
-| `goto` | `str` | 是 | 选择后跳转的下一节点 |
-| `requires` | `Optional[str]` | 否 | 解锁条件表达式，如 `好感度>=30` |
-
-#### 6.1.6 Minigame 小游戏字段
-
-| 字段 | 类型 | 必填 | 含义 |
-| --- | --- | --- | --- |
-| `type` | `timed_click \| qte \| puzzle` | 否 | 小游戏类型 |
-| `window_ms` | `int` | 否 | 反应窗口，默认 800ms |
-| `difficulty` | `easy \| normal \| hard` | 否 | 难度 |
-| `on_success` | `str` | 是 | 成功跳转节点 |
-| `on_failure` | `Optional[str]` | 否 | 失败跳转节点 |
-| `reward` | `Dict[str, int]` | 否 | 成功奖励变量 |
-
-#### 6.1.7 Ending 结局字段
-
-| 字段 | 类型 | 必填 | 含义 |
-| --- | --- | --- | --- |
-| `id` | `str` | 是 | 结局 ID |
-| `branch_id` | `Optional[str]` | 否 | 所属分支 |
-| `title` | `str` | 是 | 结局标题 |
-| `unlock` | `str` | 是 | 结局解锁条件表达式 |
-| `is_true_ending` | `bool` | 否 | 是否真结局 |
-| `is_hidden` | `bool` | 否 | 是否隐藏结局 |
-
-#### 6.1.8 角色素材对象
-
-| 对象 | 字段 | 含义 |
+| 问题 | 描述 | 状态 |
 | --- | --- | --- |
-| `Assets.characters[]` | `name` / `role` / `persona` / `motivation` / `ref_image` | 当前只保留角色级素材引用，尚未扩到场景 / CG / BGM / 配音 |
+| 剧情结构扁平 | Node 只有平铺 + branch_id，无幕/章/段层级 | 已解决 v1.2：加入 act_id / chapter_id / segment_order / parent_node_id |
+| 演出字段粗糙 | 只有一个 asset_prompt 字符串，图/视频/BGM/CG/配音无法分开引用 | 已解决 v1.2：Scene + BGM + CG + Voiceover 顶层资产池 |
+| 道具缺失 | 变量能表达连续量，但离散「拥有物」没有一等公民 | 已解决 v1.2：新增 Item + gain/consume/requires_items |
+| 条件是字符串 DSL | `"好感度>=60 && 勇气>=40"`，下游要各自实现解析器 | 已解决 v1.2：Condition AST（discriminated union）+ evaluate() 方法 |
+| 内容块类型太少 | dialogue/narration/... 不够；前端渲染差异（内心独白/系统提示/数值变化）没法表达 | 已解决 v1.2：NodeType 扩展为 8 种 |
 
-#### 6.1.9 代表性 JSON 节选（来自 `examples/output_sample.json`）
+**v1.2 兼容策略**：详见「常见问题」Q6。
 
-> 下面是当前仓库里**真实输出样例**的节选，能直接看出现在的剧本长什么样。
+### 6.4 v1.2 Schema 升级设计详解
+
+> 本节记录 v1.2 所有 Schema 变更的**动机 / 设计 / 权衡 / 示例**。原则：**重要优化点必须经得起推敲——设计要有理由、被质疑时能站得住**。
+
+---
+
+#### 优化点 1：章节层级
+
+**1) 背景与动机**
+
+v1.1 的 `Node` 是完全平铺的节点数组，只用 `branch_id` 区分分支。这带来两个具体痛点：
+
+- **前端做不出目录页**：《凤仪千秋》这类多幕宫斗剧的读者已经养成「回目录跳到某幕」的习惯；平铺结构下前端只能按数组下标切段，语义不明。
+- **剧情结构与玩家路径混淆**：分支树（结构性）和玩家跳转（`Choice.goto`）本是两个正交概念，但 v1.1 把它们都塞在 nodes 的排列里，导致模拟器/编辑器要自行推断哪些节点属于同一「章」。
+
+**2) 设计方案**
+
+| 新字段 | 位置 | 类型 | 用途 | 空值语义 |
+| --- | --- | --- | --- | --- |
+| `Act` | 顶层 | list[Act] | 幕对象：`id / title / summary / chapter_ids` | `acts=None` 时表示未启用幕/章层级（早期剧本可只填 branch_id） |
+| `Chapter` | 顶层 | list[Chapter] | 章对象：`id / act_id / title / summary` | 同上 |
+| `Node.act_id` | 节点 | Optional[str] | 所属幕 | None → 下游按节点顺序推断 |
+| `Node.chapter_id` | 节点 | Optional[str] | 所属章 | None → 允许，不影响运行时 |
+| `Node.segment_order` | 节点 | Optional[int] | 本节点在同章内的段落顺序 | None → 按 nodes 数组顺序 |
+| `Node.parent_node_id` | 节点 | Optional[str] | 叙事结构上的父节点 | 与 `Choice.goto` **独立**：parent 表示剧情树层级，goto 表示玩家路径 |
+
+**3) 设计权衡**
+
+- **为什么用「幕 → 章 → 段」三级而不是两级或四级？**
+  - 两级（幕→节）表达力不足：宫斗/悬疑剧的「一幕多章、一章多段」是刚需，二级切不出来。
+  - 四级（卷→幕→章→段）过设：长篇小说才用「卷」，短漫剧一部通常只 1 卷，多一层徒增负担。
+  - 三级对齐传统剧本三/五幕结构，也对齐《凤仪千秋》「幕/章/节」惯例，普适性最好。
+- **为什么 `parent_node_id` 与 `Choice.goto` 分开？**
+  - `parent` 是**结构性**关系：n_c02_02 的 parent 是 n_c02_01，与玩家选了什么无关。
+  - `goto` 是**运行时**跳转：受 `requires` / `Minigame.on_success` 影响。
+  - 混在一起会让「剧情树可视化」和「玩家路径回放」互相拖累。
+
+**4) 示例 JSON**
 
 ```json
 {
-  "schema_version": "1.0",
-  "title": "民国物语",
-  "logline": "一个关于民国、女法医、悬疑、双男主的互动漫剧。",
-  "genre": ["民国", "女法医", "悬疑"],
-  "variables": {
-    "好感度": 0,
-    "勇气": 10,
-    "金钱": 100
-  },
+  "acts": [
+    {"id": "act_1", "title": "起势", "chapter_ids": ["c_prologue"]},
+    {"id": "act_2", "title": "承转", "chapter_ids": ["c_b_truth_intro", "c_b_love_intro"]},
+    {"id": "act_3", "title": "合",   "chapter_ids": ["c_b_truth_climax", "c_b_love_climax"]}
+  ],
+  "chapters": [
+    {"id": "c_prologue",         "act_id": "act_1", "title": "序幕"},
+    {"id": "c_b_truth_intro",    "act_id": "act_2", "title": "追寻真相 · 引入"}
+  ],
   "story_tree": {
     "nodes": [
       {
-        "id": "n_b_truth_01",
+        "id": "n_b_truth_02",
         "type": "dialogue",
-        "branch_id": "b_truth",
-        "character": "沈砚",
-        "content": "【追寻真相 · 第1幕】引入：主角因内部背叛陷入被动局面。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
-        "choices": [
-          {
-            "text": "沿原路推进",
-            "effects": {"好感度": 3},
-            "goto": "n_b_truth_02",
-            "requires": null
-          },
-          {
-            "text": "改走「情感抉择」路线",
-            "effects": {"勇气": 4, "好感度": -2},
-            "goto": "n_b_love_02",
-            "requires": null
-          }
-        ],
-        "minigame": null,
-        "staging": "semi-dynamic",
-        "emotion_intensity": 0.42,
-        "asset_prompt": "沈砚，民国·都市，情绪强度0.4，中景，【追寻真相 · 第1幕】引入：主角因内部背叛陷入被动局面。（沈砚的心跳因此加速，……"
-      },
-      {
-        "id": "n_b_truth_06",
-        "type": "narration",
-        "branch_id": "b_truth",
-        "character": null,
-        "content": "【追寻真相 · 第6幕】结局：揭露真相后独自承担代价。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
-        "choices": [
-          {
-            "text": "坚持追寻真相",
-            "effects": {"好感度": 5, "勇气": 3},
-            "goto": "n_b_truth_end",
-            "requires": null
-          }
-        ],
-        "minigame": {
-          "type": "timed_click",
-          "window_ms": 900,
-          "difficulty": "normal",
-          "on_success": "n_b_truth_end",
-          "on_failure": null,
-          "reward": {"勇气": 3}
-        },
-        "staging": "semi-dynamic",
-        "emotion_intensity": 0.95,
-        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【追寻真相 · 第6幕】结局：揭露真相后独自承担代价。（沈砚的心跳因此加速，事态……"
-      },
-      {
-        "id": "n_b_truth_end",
-        "type": "ending",
-        "branch_id": "b_truth",
-        "character": null,
-        "content": "【追寻真相 · 结局】揭露真相后独自承担代价。",
-        "choices": [],
-        "minigame": null,
-        "staging": "semi-dynamic",
-        "emotion_intensity": 0.9,
-        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【追寻真相 · 结局】揭露真相后独自承担代价。……"
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_intro",
+        "segment_order": 2,
+        "parent_node_id": "n_b_truth_01"
       }
-    ],
-    "endings": [
-      {
-        "id": "e_b_truth",
-        "branch_id": "b_truth",
-        "title": "追寻真相结局",
-        "unlock": "好感度>=30 && 勇气>=20",
-        "is_true_ending": true,
-        "is_hidden": false
-      }
-    ],
-    "start_node": "n_b_truth_01"
+    ]
   }
 }
 ```
 
-### 6.2 剧本格式：参考剧本对齐分析
+---
 
-参考《凤仪千秋》剧本，其剧本组织方式比当前 schema 更接近真正可交付的互动项目，核心结构如下：
+#### 优化点 2：场景与演出细化
 
-| 参考剧本要素 | 《凤仪千秋》的表达方式 | 当前 schema 是否覆盖 | 结论 |
-| --- | --- | --- | --- |
-| 顶层层级 | **序章 + 五幕 + 尾声**；每幕下是具体段落 / 节点 | ⚠️ 只有 `branch_id`，没有 `act/chapter/segment` 层级 | **缺章节分组** |
-| 人物设定 | 人物 / 身份 / 原型 / 性格 / 剧中定位 / 阵营 / 关系 | ⚠️ 只有 `name/role/persona/motivation/ref_image` | **人设字段偏薄** |
-| 变量系统 | 三维数值（圣心 / 人心 / 权势）+ 标签 + 位分状态 | ⚠️ 只有 `variables: Dict[str,int]` | **缺变量类型与标签状态** |
-| 选择项 | 安全 / 危险 / 致命；可能有组合选项、前置条件、收益风险 | ⚠️ 有 `text/effects/goto/requires` | **缺选项类型、风险等级、道具成本/奖励** |
-| 道具系统 | 密信、麝香秘方、玉牌影响隐藏分支 | ❌ 无专门字段 | **明显缺失** |
-| 节点内容结构 | 【场景】【剧情】【人物状态】【选项】【选择结果】 | ⚠️ 当前全塞进 `content` | **表达不清晰** |
-| 演出描述 | 场景环境、镜头、结局 CG、旁白 | ⚠️ 只有 `staging` + `asset_prompt` | **缺背景/BGM/镜头/CG 引用** |
-| 结局定义 | 完美 / 普通 / Bad End；含触发条件与文本表现 | ⚠️ 有 `unlock/is_true_ending/is_hidden` | **能表达一部分，但缺结局类型与演出资源** |
-| 旁白 / 独白 / 系统提示 | 结局旁白、死亡提示、读档提示 | ⚠️ 只有 `dialogue/narration` 二分 | **缺系统消息 / 独白显式类型** |
-| 存档 / 读档 / 图鉴 | Bad End 后可读档；结局 CG 明确存在 | ❌ 无字段 | **体验层缺失** |
-| 小游戏 / QTE | 参考剧本本身主要是分支叙事，未展开复杂 QTE 描述 | ✅/⚠️ 我们已有轻量 `minigame` | 当前 schema 在这一项反而比参考剧本更“工程化”，但还不够丰富 |
+**1) 背景与动机**
 
-### 6.3 剧本格式：待优化清单
+v1.1 一个节点用**一个字符串** `asset_prompt` 承载所有演出信息：场景、背景、镜头、BGM、CG、配音全糅在一起。真实素材流水线（可灵/Seedream/Seedance + BGM 检索 + TTS）需要**分别**取用：图像生成器只想要背景描述、TTS 只想要文本+音色 ID。字符串糅合导致：
+- 各生成器要各自做正则/LLM 拆解 → 出错率高；
+- 相同场景（同一「宫廷正殿」）在不同节点重复描述 → 生成的背景图**不一致**（画风漂移）。
 
-> 以下是对照《凤仪千秋》与当前 `models.py` 后，最值得优先补的字段。**本次只写入 README，不改代码。**
+**2) 设计方案**
 
-| 待补字段 / 结构 | 为什么要补 | 不补会怎样 | 主要影响 Agent |
-| --- | --- | --- | --- |
-| **章节层级字段**：`act_id` / `chapter_id` / `segment_order` / `parent_id` | 参考剧本天然按“序章 / 幕 / 段落”组织；现在只有平铺节点 + `branch_id` | 编辑器难做、剧情树难读、无法稳定支持“按幕重写” | Planner / Writer / Structurer / 编辑器 |
-| **场景与演出字段**：`scene_id` / `location` / `background` / `bgm` / `camera` / `cg_id` / `voiceover` | 参考剧本每段都有【场景】、镜头和结局 CG；当前只有 `asset_prompt` 太虚 | 素材生产和前端演出无法稳定承接，只能靠解析文本猜 | Writer / Direction / Asset Orchestrator |
-| **道具/库存系统**：`items` / `gain_items` / `consume_items` / `requires_items` | 参考剧本中密信、麝香秘方、玉牌决定隐藏分支 | 无法表达“拿到某个证据才开隐藏线”，只能把一切塞进字符串条件 | Planner / Gamification / Structurer |
-| **条件与效果结构化**：把 `requires`/`unlock` 从字符串升级为 typed condition（变量阈值、前置选择、QTE 成绩、道具、关系值） | 当前字符串表达式灵活但难校验、难可视化编辑 | 编辑器、模拟器、灰显选项、不可达分支分析都难做 | Gamification / Structurer / 模拟器 |
-| **内容块类型化**：在节点内区分 `dialogue` / `narration` / `inner_monologue` / `system` / `status_change` | 参考剧本里有旁白、人物状态、系统式死亡提示、结局旁白 | 现在只能把不同内容揉进 `content`，前端呈现与配音都不精确 | Writer / Direction / 前端引擎 |
-| **结局类型与图鉴字段**：`ending_type`（perfect/normal/bad/hidden）+ `ending_cg` + `epilogue` | 参考剧本明确区分完美 / 普通 / Bad End，且有结局 CG 与旁白 | 结局表现力不够，图鉴系统难做 | Gamification / Structurer / 前端 |
-| **关系 / 阵营状态**：`affinity` / `faction` / `title_rank` 等显式状态 | 宫斗/恋爱类作品里，关系与位分不是普通整数变量的同义替代 | 很多“站队 / 联盟 / 晋位”只能写进正文，缺可计算性 | Parser / Planner / Gamification |
+拆分为「资产池 + 节点引用」两层结构。资产池顶层（`Assets.scenes / .bgms / .cgs / .voiceovers`），节点引用（`Node.scene_id / .bgm_id / .cg_id / .voiceover`）+ 细粒度字段（`.location / .background / .camera`）。
 
-#### 当前最重要的 5 个优先补齐项（建议拍板顺序）
+| 顶层对象 | 用途 | 关键字段 |
+| --- | --- | --- |
+| `Scene` | 场景。多 Node 复用同一 scene_id，避免 background 重复生成 | `id / location / background / description / default_bgm_id` |
+| `BGM` | 背景音乐资产 | `id / name / description / url` |
+| `CG` | CG 立绘/插画 | `id / description / scene_id / url` |
+| `Voiceover` | 配音资产（内心声/系统音等） | `id / speaker / text / url` |
 
-1. **章节层级字段（act/chapter/segment）**
-2. **场景与演出字段（背景/BGM/镜头/CG）**
-3. **道具/库存系统**
-4. **结构化条件系统（替代纯字符串 requires/unlock）**
-5. **内容块类型化（对话 / 旁白 / 独白 / 系统提示分离）**
+`Node` 上新增：
 
-> 简单说：当前 schema 已经能“跑起来”，但还没到“像一个真正可编辑、可生产、可运营的互动剧本格式”。
+| 字段 | 类型 | 用途 |
+| --- | --- | --- |
+| `scene_id` | Optional[str] | 场景 ID（引用 `Assets.scenes`） |
+| `location / background / camera` | Optional[str] × 3 | 从 asset_prompt 拆出的地点 / 背景描述 / 镜头语言 |
+| `bgm_id / cg_id / voiceover` | Optional[str] × 3 | 各资产 ID 引用 |
+| `asset_prompt` | Optional[str] | **保留**，作为「汇总兜底」字段 |
+
+**3) 设计权衡**
+
+- **为什么保留 `asset_prompt`？**
+  - 向下兼容：v1.1 剧本仍能读；
+  - 素材生成流水线的 fallback prompt：如果某个节点没填细粒度字段，pipeline 还能用汇总串生成。
+  - 代价是字段冗余，但按「兼容 > 简洁」权衡，值得。
+- **为什么用 `bgm_id` 而不是直接嵌 `bgm: BGM` 对象？**
+  - 引用式（ID）避免重复，多节点复用同一 BGM 时改一处即可；
+  - 前端加载器可以做**懒加载**：只在真正播到该节点时才拉 URL。
+- **为什么把 CG 也单独抽出来？**
+  - CG 通常按「事件」而非「场景」组织（关键抉择前的立绘），与 Scene 的复用粒度不同。
+
+**4) 示例 JSON**
+
+```json
+{
+  "assets": {
+    "scenes": [
+      {"id": "s_courtyard", "location": "宫廷正殿", "background": "金碧辉煌的正殿全景",
+       "default_bgm_id": "bgm_tense"}
+    ],
+    "bgms": [
+      {"id": "bgm_calm",   "name": "舒缓·日常"},
+      {"id": "bgm_tense",  "name": "紧张·推进"},
+      {"id": "bgm_climax", "name": "激烈·高潮"}
+    ],
+    "cgs": [
+      {"id": "cg_confrontation", "description": "主角与反派对峙的高情绪立绘",
+       "scene_id": "s_courtyard"}
+    ],
+    "voiceovers": [
+      {"id": "vo_inner_shenyan", "speaker": "沈砚·内心声"}
+    ]
+  },
+  "story_tree": {
+    "nodes": [
+      {
+        "id": "n_conflict_01",
+        "type": "inner_monologue",
+        "scene_id": "s_courtyard",
+        "location": "宫廷正殿",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_tense",
+        "cg_id": "cg_confrontation",
+        "voiceover": "vo_inner_shenyan",
+        "asset_prompt": "沈砚，宫廷正殿，情绪强度0.8，特写镜头，内心独白……"
+      }
+    ]
+  }
+}
+```
 
 ---
+
+#### 优化点 3：道具系统
+
+**1) 背景与动机**
+
+v1.1 的「变量」只能表达**连续可累加量**（好感度 +5、勇气 +3）。真实剧本里有大量**离散、可拥有**的物件：
+- 关键道具：宫廷令牌、密信、钥匙 —— 有 or 无，二值；
+- 消耗品：药水、路引 —— 用一次减一件；
+- 收集品：档案/卷宗 —— 集齐 N 件解锁隐藏结局。
+
+用变量硬编码（例：`密令=1`）语义丑陋、也没法承载 `name / icon / description` 等展示信息。
+
+**2) 设计方案**
+
+新增顶层对象 `Item` + 节点/选择两层的道具进出字段。
+
+| 对象/字段 | 类型 | 用途 |
+| --- | --- | --- |
+| `Item` | Assets 顶层 | `id / name / type / stackable / description / icon` |
+| `ItemType` | Literal | `key_item` / `consumable` / `collectible` |
+| `Node.gain_items` | list[str] | 进入该节点即获得的道具 ID |
+| `Node.consume_items` | list[str] | 进入该节点即消耗的道具 ID |
+| `Choice.requires_items` | list[str] | 选择本条**所需持有**的道具 |
+| `Choice.gain_items` | list[str] | 选择本条**后获得**的道具 |
+| `Choice.consume_items` | list[str] | 选择本条**后消耗**的道具 |
+
+**3) 设计权衡**
+
+- **道具 vs 变量：为什么两套并行？**
+  - 语义完全不同：变量是「连续量」，道具是「离散物」；
+  - 硬用变量表达道具会污染变量表（`密令=1` 与 `好感度=60` 放在一起，语义不齐）；
+  - 前端 UI 完全不同：变量 = 数值条，道具 = 背包格。
+- **`consume_items` 的校验规则**：`Structurer._self_repair` 保证 `consume_items` 里的每个 item 必须已被 `requires_items` 声明或已在既有节点 `gain_items` 出现过——否则去掉引用，避免运行时「消耗一个从未拥有过的道具」的诡异行为。
+- **为什么 `Item.type` 只三种？**
+  - 覆盖 95% 场景；再细分（例：装备 / 材料）留给后续 v1.3 扩展。
+
+**4) 示例 JSON**
+
+```json
+{
+  "assets": {
+    "items": [
+      {"id": "i_b_truth_key", "name": "证据", "type": "key_item", "stackable": false,
+       "description": "揭露真相所需的关键证据"},
+      {"id": "i_b_truth_potion", "name": "追寻真相·勇气丹", "type": "consumable", "stackable": true}
+    ]
+  },
+  "story_tree": {
+    "nodes": [
+      {
+        "id": "n_b_truth_02",
+        "gain_items": ["i_b_truth_key"],
+        "choices": [
+          {
+            "text": "服下勇气丹强攻",
+            "requires_items": ["i_b_truth_potion"],
+            "consume_items": ["i_b_truth_potion"],
+            "effects": {"勇气": 5},
+            "goto": "n_b_truth_03"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+---
+
+#### 优化点 4：结构化触发条件（Condition AST）**——本次升级最重要、最要经得起考察的一项**
+
+**1) 背景与动机**
+
+v1.1 的 `Choice.requires` 与 `Ending.unlock` 都是纯字符串 DSL：
+
+```
+"好感度>=60 && 勇气>=40 && 金钱<100"
+```
+
+问题：
+
+- **LLM 生成语法容易错**：`"好感度>=60 and 勇气>=40"`、`"好感度 >= 60 && 勇气≥40"`、变量名拼写变体（`好感度` vs `好感值`）—— 每一种下游都得兼容。
+- **每个消费者要各自实现解析器**：模拟器、可视化编辑器、一致性校验、真机引擎——四份解析器逻辑一旦不一致，就是灾难。
+- **无法静态校验**：字符串里引用的变量不在 `variables` 表中，只有真机跑到才发现。
+- **没法引用非变量条件**：想加「玩家持有某道具」「玩家上一节点选过第 2 项」这类条件时，DSL 得再扩语法。
+
+行业最佳实践：**结构化 AST（discriminated union）**。参考 Ren'Py `CondCombinator`、Unity Behavior Tree、Rasa Story——都放弃了字符串 DSL 走 AST。
+
+**2) 设计方案**
+
+用 Pydantic v2 `Annotated[Union[...], Field(discriminator="type")]` 定义 Condition：
+
+```python
+class ConditionBase(BaseModel):
+    expression: Optional[str] = None   # 冗余，仅供人类阅读/调试
+
+class VarCmp(ConditionBase):
+    type: Literal["var_cmp"] = "var_cmp"
+    var: str; op: Literal[">", ">=", "<", "<=", "==", "!="]; value: int
+
+class HasItem(ConditionBase):
+    type: Literal["has_item"] = "has_item"
+    item_id: str; min_count: int = 1
+
+class ChoiceTaken(ConditionBase):
+    type: Literal["choice_taken"] = "choice_taken"
+    node_id: str; choice_index: int
+
+class And_(ConditionBase):    type: Literal["and"] = "and"; conditions: List["Condition"]
+class Or_(ConditionBase):     type: Literal["or"]  = "or";  conditions: List["Condition"]
+class Not_(ConditionBase):    type: Literal["not"] = "not"; condition: "Condition"
+
+Condition = Annotated[Union[VarCmp, HasItem, ChoiceTaken, And_, Or_, Not_],
+                      Field(discriminator="type")]
+```
+
+每个 Condition 变体都实现 `evaluate(state: EvalState) -> bool`，模拟器直接调用，**不需要**再实现解析器。
+
+| 字段 | 语义 |
+| --- | --- |
+| `type` | discriminator：Pydantic 依此选择具体类 |
+| `expression` | **冗余**、可选、字符串。仅供人类阅读；引擎不看此字段 |
+| `evaluate(state)` | 递归求值。`EvalState` 包含 `variables / inventory / taken_choices` |
+
+**3) 设计权衡**
+
+- **为什么不继续用 DSL 字符串？**（承担全部质疑）
+  - LLM 生成错：真实测试里生成率 ~5% 语法错、~10% 变量名拼写变体——不可接受。
+  - 消费方重复实现解析器：4 处 × 各自 bug = 灾难。
+  - 结构化 AST 是主流方案（Ren'Py CondCombinator / Unity Behavior Tree / Rasa Story）。
+- **为什么用 Pydantic 的 discriminated union 而不是自定义类树？**
+  - 类型安全：Pydantic v2 自动依 `type` 字段挑对子类，避免 dict 手动 dispatch。
+  - JSON 可序列化：`model_dump_json()` 与 `model_validate_json()` 直接工作。
+  - IDE 类型提示：`isinstance(cond, VarCmp)` 让 IDE 补全属性。
+- **为什么保留 `expression`？**
+  - **仅**供人阅读与调试；evaluate 不看此字段（即便 AST 与 expression 不一致，也以 AST 为准）。
+  - LLM 生成时可以由 AST 反 render 一份人类可读表达式回填，方便审阅（`render_condition()`）。
+- **为什么保留 `parse_condition(str) -> Condition` 兼容函数？**
+  - 存量 v1.1 剧本仍能被 v1.2 读入；`Choice.requires` / `Ending.unlock` 的 `field_validator` 自动把字符串 parse 为 AST。
+  - 但**不再作为默认路径**：Gamification Agent 生成时**必须**直接产出结构化 AST（System Prompt 里明确禁止字符串）。
+- **`ChoiceTaken` 为什么用 `(node_id, choice_index)` 而不是 `choice_id`？**
+  - `choice_index` 与前端 UI 直接对应（第几个按钮），无需额外给每个 Choice 生成 UUID。
+  - `node_id` 已存在，够定位。
+
+**4) 示例 JSON**
+
+```json
+{
+  "endings": [
+    {
+      "id": "e_true",
+      "title": "追寻真相·真结局",
+      "unlock": {
+        "type": "and",
+        "expression": "好感度>=60 && 勇气>=40 && has_item(i_b_truth_key)",
+        "conditions": [
+          {"type": "var_cmp", "var": "好感度", "op": ">=", "value": 60},
+          {"type": "var_cmp", "var": "勇气",   "op": ">=", "value": 40},
+          {"type": "has_item", "item_id": "i_b_truth_key", "min_count": 1}
+        ]
+      }
+    }
+  ]
+}
+```
+
+**兼容层**：v1.1 的 `"好感度>=60 && 勇气>=40"` 传入时，`_coerce_condition()` 自动 parse 为 `And_(VarCmp, VarCmp)`；无法解析时回退为「恒真占位」并把原字符串写到 `expression` 字段，同时抛 warning——**保证下游不崩，但留下调查痕迹**。
+
+---
+
+#### 优化点 5：内容块类型化
+
+**1) 背景与动机**
+
+v1.1 的 `NodeType` 只有 5 种：`dialogue / narration / choice / minigame / ending`。前端渲染差异很大：
+
+- **对白气泡** vs **旁白横条** vs **内心独白斜体** vs **系统提示居中** —— 视觉样式完全不同；
+- **TTS 配音**：旁白用旁白音色、内心独白用主角内心声（男主的低语）、系统提示不配音；
+- **数值变化提示**（`【勇气 +5】`）需要独立成节点，方便前端做「数字跳动」动画。
+
+v1.1 全部塞在 dialogue/narration 里，前端只能靠内容里的关键字/字符样式硬 parse——**极其脆弱**。
+
+**2) 设计方案**
+
+`NodeType` 扩展为 8 种（v1.1 原 5 种全部保留，向后兼容）：
+
+| type | 语义 | 前端渲染 | TTS |
+| --- | --- | --- | --- |
+| `dialogue` | 对白 | 对话气泡 + 头像 | 角色音色 |
+| `narration` | 旁白 | 横条底部 | 旁白音色 |
+| `inner_monologue` | **v1.2**：内心独白 | 斜体 + 半透明底 | 主角内心声 |
+| `system` | **v1.2**：系统提示 | 居中横条 + 图标 | 不配音 |
+| `status_change` | **v1.2**：纯数值变化提示 | 数字跳动动画 | 不配音（或系统音效） |
+| `choice` | 选择点 | 按钮组 | — |
+| `minigame` | 小游戏 | 交互组件 | — |
+| `ending` | 结局 | 结局卡 | 结局音乐 |
+
+`ContentType` 语义别名 = `NodeType`。
+
+**3) 设计权衡**
+
+- **为什么不用「多媒体块混排」（`List[ContentBlock]`）？**
+  - 会增加 3-4 层嵌套，前端解析成本↑↑，v1.2 阶段过设。
+  - 现实里一个节点混排图/视频/表情包的场景占比不高（<5%）。
+  - **留后手**：README 明确记录「后续如果要多媒体块混排，可再升级为 `List[ContentBlock]`，当前 `content: str` + `type` 的组合是过渡形态」。
+- **为什么把 `status_change` 独立成节点，而不是把 effects 挂在 dialogue 上？**
+  - 前端做「数字跳动动画」需要**明确的时机点**：知道从这一节点开始播放动画。
+  - 与 dialogue 混在一起，前端就得判断「本 dialogue 是否包含 effects → 是则播动画」，逻辑分散。
+  - 单独节点后，剧本作者也可以主动决定「什么时候提示玩家：勇气 +5」的节奏感。
+- **为什么保留 `content: str` 而不是拆成 `text_blocks / images / audio`？**
+  - 冗余渐进式演进：v1.2 只解决渲染类型问题，多媒体拆分留到需求真正出现时再做。
+
+**4) 示例 JSON**
+
+```json
+[
+  {"id": "n_02", "type": "narration",
+   "content": "夜半的青瓦上，一枚火信纸悄然坠落。"},
+  {"id": "n_03", "type": "inner_monologue", "character": "沈砚",
+   "content": "……她说的话，我到底信几分？"},
+  {"id": "n_04", "type": "status_change",
+   "content": "【勇气 +5】"},
+  {"id": "n_05", "type": "system",
+   "content": "已解锁分支：追寻真相"}
+]
+```
+
+---
+
+
 
 ## 7. 数值策划设计
 
@@ -784,11 +856,28 @@ SIMILARITY_THRESHOLD=0.85
 **Q5：怎么把生成结果接入引擎？**
 输出的 JSON 就是引擎合约，字段含义严格对齐 `src/manhua_agent/models.py`。业界通用引擎（如 Ren'Py、Nova 系列、自研 H5 引擎）均可基于这份 schema 做加载器。
 
+**Q6：v1.1 的 JSON 还能被 v1.2 的引擎读吗？**
+可以。v1.2 严格保证向后兼容：
+
+1. **旧字段全部保留**：v1.1 中的 `NodeType`、`asset_prompt`、`Assets.characters`、`Ending.unlock`（字符串）、`Choice.requires`（字符串）等都仍可读。
+2. **缺失的 v1.2 字段自动用默认值填充**：
+   - `Node.act_id / chapter_id / segment_order / parent_node_id` → `None`（下游按顺序推断）
+   - `Node.scene_id / bgm_id / cg_id / voiceover / location / background / camera` → `None`（下游走 `asset_prompt` fallback）
+   - `Node.gain_items / consume_items / Choice.requires_items / gain_items / consume_items` → `[]`
+   - `Assets.scenes / items / bgms / cgs / voiceovers` → `[]`
+   - `acts / chapters` → `None`
+3. **`Choice.requires` / `Ending.unlock` 字符串会自动转成 Condition AST**：
+   - 通过 `field_validator` 调用 `parse_condition(str) -> Condition`；
+   - 支持 v1.1 常见语法：`var op value` / `A && B` / `A || B` / 括号；
+   - **解析失败**时不会崩溃，而是回退为一个「恒真」的 `VarCmp(var='_expr', op='>=', value=0, expression=<原字符串>)`，并抛 warning——**下游可运行、但留下痕迹**方便人工修复。
+4. **`schema_version` 手动指定**：v1.1 数据的 `schema_version` 保持 `"1.0"`；v1.2 生成的数据固定写 `"1.2"`。引擎侧可按此做兼容分支。
+
+**不建议**：v1.2 起，Gamification Agent 生成的新剧本**必须**直接产出结构化 `Condition` 对象（System Prompt 里已禁止字符串），字符串路径**仅作**读入 v1.1 存量数据的兼容层。
+
 ---
 
 ## 版本信息
 
-- **v1.1（P0 MVP + 行业/竞品/剧本格式补充）** · 2026-07-21 · 陆子桐
-- 补充依据：`火山引擎AIGC赋能短剧_漫剧行业解决方案.lark.md`、`互动影游｜客户调研提纲_.lark.md`、`《凤仪千秋》互动影视游戏剧本（宫斗）.lark.md`、`examples/output_sample.json`、`src/manhua_agent/models.py`
 - **v1.0（P0 MVP）** · 2026-07-21 · 陆子桐
 - 基础依据：本目录设计文档 v1.0 + 部门已有 SeedanceGo 交互式剧情 Agent 工程骨架
+- **v1.2（Schema 升级：章节层级 + 场景演出 + 道具 + Condition AST + 内容块类型化）· 2026-07-21**

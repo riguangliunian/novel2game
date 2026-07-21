@@ -1,0 +1,1402 @@
+{
+  "schema_version": "1.2",
+  "title": "民国物语",
+  "logline": "一个关于民国、女法医、悬疑、双男主的互动漫剧。",
+  "genre": [
+    "民国",
+    "女法医",
+    "悬疑"
+  ],
+  "variables": {
+    "好感度": 0,
+    "勇气": 10,
+    "金钱": 100
+  },
+  "story_tree": {
+    "nodes": [
+      {
+        "id": "n_b_truth_01",
+        "type": "narration",
+        "branch_id": "b_truth",
+        "character": null,
+        "content": "【追寻真相 · 第1幕】引入：主角因内部背叛陷入被动局面。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_truth_02",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「情感抉择」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_love_02",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "服下追寻真相·勇气丹强攻",
+            "effects": {
+              "勇气": 5
+            },
+            "goto": "n_b_truth_02",
+            "requires": null,
+            "requires_items": [
+              "i_b_truth_potion"
+            ],
+            "gain_items": [],
+            "consume_items": [
+              "i_b_truth_potion"
+            ]
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.42,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.4，中景，【追寻真相 · 第1幕】引入：主角因内部背叛陷入被动局面。（沈砚的心跳因此加速，……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_intro",
+        "segment_order": 1,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_truth_02",
+        "type": "inner_monologue",
+        "branch_id": "b_truth",
+        "character": "沈砚",
+        "content": "【追寻真相 · 第2幕】深入：搜集线索，接触关键人物。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_truth_03",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「情感抉择」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_love_03",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.54,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.5，中景，【追寻真相 · 第2幕】深入：搜集线索，接触关键人物。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_intro",
+        "segment_order": 2,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": "vo_inner_沈砚",
+        "gain_items": [
+          "i_b_truth_key"
+        ],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_truth_03",
+        "type": "dialogue",
+        "branch_id": "b_truth",
+        "character": "沈砚",
+        "content": "【追寻真相 · 第3幕】转折：出现意料之外的抉择时刻。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_truth_04",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「情感抉择」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_love_04",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.6599999999999999,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.7，中景，【追寻真相 · 第3幕】转折：出现意料之外的抉择时刻。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_intro",
+        "segment_order": 3,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_truth_04",
+        "type": "inner_monologue",
+        "branch_id": "b_truth",
+        "character": "沈砚",
+        "content": "【追寻真相 · 第4幕】推进：主角承受抉择带来的代价。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_truth_05",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「情感抉择」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_love_05",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.78,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.8，特写镜头，【追寻真相 · 第4幕】推进：主角承受抉择带来的代价。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_intro",
+        "segment_order": 4,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_truth_04",
+        "voiceover": "vo_inner_沈砚",
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_truth_05",
+        "type": "dialogue",
+        "branch_id": "b_truth",
+        "character": "沈砚",
+        "content": "【追寻真相 · 第5幕】高潮：揭露真相后独自承担代价前的最终对峙。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_truth_06",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「情感抉择」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_love_06",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.8999999999999999,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【追寻真相 · 第5幕】高潮：揭露真相后独自承担代价前的最终对峙。（沈砚的心跳因……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_intro",
+        "segment_order": 5,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_truth_05",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_truth_06",
+        "type": "narration",
+        "branch_id": "b_truth",
+        "character": null,
+        "content": "【追寻真相 · 第6幕】结局：揭露真相后独自承担代价。（沈砚的心跳因此加速，事态正朝着揭露真相后独自承担代价的方向倾斜。）",
+        "choices": [
+          {
+            "text": "坚持追寻真相",
+            "effects": {
+              "好感度": 5,
+              "勇气": 3
+            },
+            "goto": "n_b_truth_end",
+            "requires": {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "好感度",
+              "op": ">=",
+              "value": 5
+            },
+            "requires_items": [
+              "i_b_truth_key"
+            ],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": {
+          "type": "timed_click",
+          "window_ms": 900,
+          "difficulty": "normal",
+          "on_success": "n_b_truth_end",
+          "on_failure": null,
+          "reward": {
+            "勇气": 3
+          }
+        },
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.95,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【追寻真相 · 第6幕】结局：揭露真相后独自承担代价。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_truth_climax",
+        "segment_order": 6,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_truth_06",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_truth_end",
+        "type": "ending",
+        "branch_id": "b_truth",
+        "character": null,
+        "content": "【追寻真相 · 结局】揭露真相后独自承担代价。",
+        "choices": [],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.9,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【追寻真相 · 结局】揭露真相后独自承担代价。……",
+        "act_id": "act_3",
+        "chapter_id": null,
+        "segment_order": null,
+        "parent_node_id": null,
+        "scene_id": "s_act_3",
+        "location": "都市·act_3",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_truth_end",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_01",
+        "type": "narration",
+        "branch_id": "b_love",
+        "character": null,
+        "content": "【情感抉择 · 第1幕】引入：主角因爱人身份存疑陷入被动局面。（沈砚的心跳因此加速，事态正朝着选择相信爱人，共同流亡的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_love_02",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「复仇之路」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_revenge_02",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "服下情感抉择·勇气丹强攻",
+            "effects": {
+              "勇气": 5
+            },
+            "goto": "n_b_love_02",
+            "requires": null,
+            "requires_items": [
+              "i_b_love_potion"
+            ],
+            "gain_items": [],
+            "consume_items": [
+              "i_b_love_potion"
+            ]
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.42,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.4，中景，【情感抉择 · 第1幕】引入：主角因爱人身份存疑陷入被动局面。（沈砚的心跳因此加……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_love_intro",
+        "segment_order": 1,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_02",
+        "type": "inner_monologue",
+        "branch_id": "b_love",
+        "character": "沈砚",
+        "content": "【情感抉择 · 第2幕】深入：搜集线索，接触关键人物。（沈砚的心跳因此加速，事态正朝着选择相信爱人，共同流亡的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_love_03",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「复仇之路」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_revenge_03",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.54,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.5，中景，【情感抉择 · 第2幕】深入：搜集线索，接触关键人物。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_love_intro",
+        "segment_order": 2,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": "vo_inner_沈砚",
+        "gain_items": [
+          "i_b_love_key"
+        ],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_03",
+        "type": "dialogue",
+        "branch_id": "b_love",
+        "character": "沈砚",
+        "content": "【情感抉择 · 第3幕】转折：出现意料之外的抉择时刻。（沈砚的心跳因此加速，事态正朝着选择相信爱人，共同流亡的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_love_04",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「复仇之路」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_revenge_04",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.6599999999999999,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.7，中景，【情感抉择 · 第3幕】转折：出现意料之外的抉择时刻。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_love_intro",
+        "segment_order": 3,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_04",
+        "type": "inner_monologue",
+        "branch_id": "b_love",
+        "character": "沈砚",
+        "content": "【情感抉择 · 第4幕】推进：主角承受抉择带来的代价。（沈砚的心跳因此加速，事态正朝着选择相信爱人，共同流亡的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_love_05",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「复仇之路」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_revenge_05",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.78,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.8，特写镜头，【情感抉择 · 第4幕】推进：主角承受抉择带来的代价。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_love_intro",
+        "segment_order": 4,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_love_04",
+        "voiceover": "vo_inner_沈砚",
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_05",
+        "type": "dialogue",
+        "branch_id": "b_love",
+        "character": "沈砚",
+        "content": "【情感抉择 · 第5幕】高潮：选择相信爱人，共同流亡前的最终对峙。（沈砚的心跳因此加速，事态正朝着选择相信爱人，共同流亡的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_love_06",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「复仇之路」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_revenge_06",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.8999999999999999,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【情感抉择 · 第5幕】高潮：选择相信爱人，共同流亡前的最终对峙。（沈砚的心跳因……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_love_intro",
+        "segment_order": 5,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_love_05",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_06",
+        "type": "narration",
+        "branch_id": "b_love",
+        "character": null,
+        "content": "【情感抉择 · 第6幕】结局：选择相信爱人，共同流亡。（沈砚的心跳因此加速，事态正朝着选择相信爱人，共同流亡的方向倾斜。）",
+        "choices": [
+          {
+            "text": "坚持情感抉择",
+            "effects": {
+              "好感度": 5,
+              "勇气": 3
+            },
+            "goto": "n_b_love_end",
+            "requires": {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "好感度",
+              "op": ">=",
+              "value": 5
+            },
+            "requires_items": [
+              "i_b_love_key"
+            ],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": {
+          "type": "timed_click",
+          "window_ms": 900,
+          "difficulty": "normal",
+          "on_success": "n_b_love_end",
+          "on_failure": null,
+          "reward": {
+            "勇气": 3
+          }
+        },
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.95,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【情感抉择 · 第6幕】结局：选择相信爱人，共同流亡。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_love_climax",
+        "segment_order": 6,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_love_06",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_love_end",
+        "type": "ending",
+        "branch_id": "b_love",
+        "character": null,
+        "content": "【情感抉择 · 结局】选择相信爱人，共同流亡。",
+        "choices": [],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.9,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【情感抉择 · 结局】选择相信爱人，共同流亡。……",
+        "act_id": "act_3",
+        "chapter_id": null,
+        "segment_order": null,
+        "parent_node_id": null,
+        "scene_id": "s_act_3",
+        "location": "都市·act_3",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_love_end",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_01",
+        "type": "narration",
+        "branch_id": "b_revenge",
+        "character": null,
+        "content": "【复仇之路 · 第1幕】引入：主角因同伴的死亡陷入被动局面。（沈砚的心跳因此加速，事态正朝着以暴制暴反被吞噬的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_revenge_02",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「追寻真相」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_truth_02",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "服下复仇之路·勇气丹强攻",
+            "effects": {
+              "勇气": 5
+            },
+            "goto": "n_b_revenge_02",
+            "requires": null,
+            "requires_items": [
+              "i_b_revenge_potion"
+            ],
+            "gain_items": [],
+            "consume_items": [
+              "i_b_revenge_potion"
+            ]
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.42,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.4，中景，【复仇之路 · 第1幕】引入：主角因同伴的死亡陷入被动局面。（沈砚的心跳因此加速……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_revenge_intro",
+        "segment_order": 1,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_02",
+        "type": "inner_monologue",
+        "branch_id": "b_revenge",
+        "character": "沈砚",
+        "content": "【复仇之路 · 第2幕】深入：搜集线索，接触关键人物。（沈砚的心跳因此加速，事态正朝着以暴制暴反被吞噬的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_revenge_03",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「追寻真相」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_truth_03",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.54,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.5，中景，【复仇之路 · 第2幕】深入：搜集线索，接触关键人物。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_revenge_intro",
+        "segment_order": 2,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": "vo_inner_沈砚",
+        "gain_items": [
+          "i_b_revenge_key"
+        ],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_03",
+        "type": "dialogue",
+        "branch_id": "b_revenge",
+        "character": "沈砚",
+        "content": "【复仇之路 · 第3幕】转折：出现意料之外的抉择时刻。（沈砚的心跳因此加速，事态正朝着以暴制暴反被吞噬的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_revenge_04",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「追寻真相」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_truth_04",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.6599999999999999,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.7，中景，【复仇之路 · 第3幕】转折：出现意料之外的抉择时刻。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_revenge_intro",
+        "segment_order": 3,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "中景",
+        "bgm_id": "bgm_tense",
+        "cg_id": null,
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_04",
+        "type": "inner_monologue",
+        "branch_id": "b_revenge",
+        "character": "沈砚",
+        "content": "【复仇之路 · 第4幕】推进：主角承受抉择带来的代价。（沈砚的心跳因此加速，事态正朝着以暴制暴反被吞噬的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_revenge_05",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「追寻真相」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_truth_05",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.78,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.8，特写镜头，【复仇之路 · 第4幕】推进：主角承受抉择带来的代价。（沈砚的心跳因此加速，事态……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_revenge_intro",
+        "segment_order": 4,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_revenge_04",
+        "voiceover": "vo_inner_沈砚",
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_05",
+        "type": "dialogue",
+        "branch_id": "b_revenge",
+        "character": "沈砚",
+        "content": "【复仇之路 · 第5幕】高潮：以暴制暴反被吞噬前的最终对峙。（沈砚的心跳因此加速，事态正朝着以暴制暴反被吞噬的方向倾斜。）",
+        "choices": [
+          {
+            "text": "沿原路推进",
+            "effects": {
+              "好感度": 3
+            },
+            "goto": "n_b_revenge_06",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          },
+          {
+            "text": "改走「追寻真相」路线",
+            "effects": {
+              "勇气": 4,
+              "好感度": -2
+            },
+            "goto": "n_b_truth_06",
+            "requires": null,
+            "requires_items": [],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.8999999999999999,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【复仇之路 · 第5幕】高潮：以暴制暴反被吞噬前的最终对峙。（沈砚的心跳因此加速……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_revenge_intro",
+        "segment_order": 5,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_revenge_05",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_06",
+        "type": "narration",
+        "branch_id": "b_revenge",
+        "character": null,
+        "content": "【复仇之路 · 第6幕】结局：以暴制暴反被吞噬。（沈砚的心跳因此加速，事态正朝着以暴制暴反被吞噬的方向倾斜。）",
+        "choices": [
+          {
+            "text": "坚持复仇之路",
+            "effects": {
+              "好感度": 5,
+              "勇气": 3
+            },
+            "goto": "n_b_revenge_end",
+            "requires": {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "好感度",
+              "op": ">=",
+              "value": 5
+            },
+            "requires_items": [
+              "i_b_revenge_key"
+            ],
+            "gain_items": [],
+            "consume_items": []
+          }
+        ],
+        "minigame": {
+          "type": "timed_click",
+          "window_ms": 900,
+          "difficulty": "normal",
+          "on_success": "n_b_revenge_end",
+          "on_failure": null,
+          "reward": {
+            "勇气": 3
+          }
+        },
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.95,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【复仇之路 · 第6幕】结局：以暴制暴反被吞噬。（沈砚的心跳因此加速，事态正朝着……",
+        "act_id": "act_2",
+        "chapter_id": "c_b_revenge_climax",
+        "segment_order": 6,
+        "parent_node_id": null,
+        "scene_id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_revenge_06",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      },
+      {
+        "id": "n_b_revenge_end",
+        "type": "ending",
+        "branch_id": "b_revenge",
+        "character": null,
+        "content": "【复仇之路 · 结局】以暴制暴反被吞噬。",
+        "choices": [],
+        "minigame": null,
+        "staging": "semi-dynamic",
+        "emotion_intensity": 0.9,
+        "asset_prompt": "沈砚，民国·都市，情绪强度0.9，特写镜头，【复仇之路 · 结局】以暴制暴反被吞噬。……",
+        "act_id": "act_3",
+        "chapter_id": null,
+        "segment_order": null,
+        "parent_node_id": null,
+        "scene_id": "s_act_3",
+        "location": "都市·act_3",
+        "background": "民国·都市氛围底图",
+        "camera": "特写镜头",
+        "bgm_id": "bgm_climax",
+        "cg_id": "cg_n_b_revenge_end",
+        "voiceover": null,
+        "gain_items": [],
+        "consume_items": []
+      }
+    ],
+    "endings": [
+      {
+        "id": "e_b_truth",
+        "branch_id": "b_truth",
+        "title": "追寻真相结局",
+        "unlock": {
+          "expression": null,
+          "type": "and",
+          "conditions": [
+            {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "好感度",
+              "op": ">=",
+              "value": 30
+            },
+            {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "勇气",
+              "op": ">=",
+              "value": 20
+            }
+          ]
+        },
+        "is_true_ending": true,
+        "is_hidden": false
+      },
+      {
+        "id": "e_b_love",
+        "branch_id": "b_love",
+        "title": "情感抉择结局",
+        "unlock": {
+          "expression": null,
+          "type": "and",
+          "conditions": [
+            {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "好感度",
+              "op": ">=",
+              "value": 45
+            },
+            {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "勇气",
+              "op": ">=",
+              "value": 30
+            }
+          ]
+        },
+        "is_true_ending": false,
+        "is_hidden": false
+      },
+      {
+        "id": "e_b_revenge",
+        "branch_id": "b_revenge",
+        "title": "复仇之路结局",
+        "unlock": {
+          "expression": null,
+          "type": "and",
+          "conditions": [
+            {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "好感度",
+              "op": ">=",
+              "value": 60
+            },
+            {
+              "expression": null,
+              "type": "var_cmp",
+              "var": "勇气",
+              "op": ">=",
+              "value": 40
+            }
+          ]
+        },
+        "is_true_ending": false,
+        "is_hidden": false
+      }
+    ],
+    "start_node": "n_b_truth_01"
+  },
+  "assets": {
+    "characters": [
+      {
+        "name": "沈砚",
+        "role": "男主角",
+        "persona": "冷静克制、行动派",
+        "motivation": "追寻真相",
+        "ref_image": null
+      },
+      {
+        "name": "林深",
+        "role": "女主角",
+        "persona": "聪慧敏锐、有正义感",
+        "motivation": "解决案件",
+        "ref_image": null
+      },
+      {
+        "name": "孟秋",
+        "role": "反派",
+        "persona": "城府深沉的幕后黑手",
+        "motivation": "维护旧秩序",
+        "ref_image": null
+      }
+    ],
+    "scenes": [
+      {
+        "id": "s_act_2",
+        "location": "都市·act_2",
+        "background": "民国·都市氛围底图",
+        "description": "由节点 n_b_truth_01 首次登场的场景",
+        "default_bgm_id": "bgm_tense"
+      },
+      {
+        "id": "s_act_3",
+        "location": "都市·act_3",
+        "background": "民国·都市氛围底图",
+        "description": "由节点 n_b_truth_end 首次登场的场景",
+        "default_bgm_id": "bgm_climax"
+      }
+    ],
+    "items": [
+      {
+        "id": "i_b_truth_key",
+        "name": "证据",
+        "type": "key_item",
+        "stackable": false,
+        "description": "分支「追寻真相」的关键道具，触发结局解锁使用",
+        "icon": null
+      },
+      {
+        "id": "i_b_truth_potion",
+        "name": "追寻真相·勇气丹",
+        "type": "consumable",
+        "stackable": true,
+        "description": "临时提升勇气数值 5 点的消耗品",
+        "icon": null
+      },
+      {
+        "id": "i_b_love_key",
+        "name": "定情信物",
+        "type": "key_item",
+        "stackable": false,
+        "description": "分支「情感抉择」的关键道具，触发结局解锁使用",
+        "icon": null
+      },
+      {
+        "id": "i_b_love_potion",
+        "name": "情感抉择·勇气丹",
+        "type": "consumable",
+        "stackable": true,
+        "description": "临时提升勇气数值 5 点的消耗品",
+        "icon": null
+      },
+      {
+        "id": "i_b_revenge_key",
+        "name": "武器",
+        "type": "key_item",
+        "stackable": false,
+        "description": "分支「复仇之路」的关键道具，触发结局解锁使用",
+        "icon": null
+      },
+      {
+        "id": "i_b_revenge_potion",
+        "name": "复仇之路·勇气丹",
+        "type": "consumable",
+        "stackable": true,
+        "description": "临时提升勇气数值 5 点的消耗品",
+        "icon": null
+      }
+    ],
+    "bgms": [
+      {
+        "id": "bgm_tense",
+        "name": "紧张·推进",
+        "description": "按情绪强度自动分档",
+        "url": null
+      },
+      {
+        "id": "bgm_climax",
+        "name": "激烈·高潮",
+        "description": "按情绪强度自动分档",
+        "url": null
+      }
+    ],
+    "cgs": [
+      {
+        "id": "cg_n_b_truth_04",
+        "description": "节点 n_b_truth_04 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_truth_05",
+        "description": "节点 n_b_truth_05 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_truth_06",
+        "description": "节点 n_b_truth_06 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_truth_end",
+        "description": "节点 n_b_truth_end 的高情绪 CG",
+        "scene_id": "s_act_3",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_love_04",
+        "description": "节点 n_b_love_04 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_love_05",
+        "description": "节点 n_b_love_05 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_love_06",
+        "description": "节点 n_b_love_06 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_love_end",
+        "description": "节点 n_b_love_end 的高情绪 CG",
+        "scene_id": "s_act_3",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_revenge_04",
+        "description": "节点 n_b_revenge_04 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_revenge_05",
+        "description": "节点 n_b_revenge_05 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_revenge_06",
+        "description": "节点 n_b_revenge_06 的高情绪 CG",
+        "scene_id": "s_act_2",
+        "url": null
+      },
+      {
+        "id": "cg_n_b_revenge_end",
+        "description": "节点 n_b_revenge_end 的高情绪 CG",
+        "scene_id": "s_act_3",
+        "url": null
+      }
+    ],
+    "voiceovers": [
+      {
+        "id": "vo_inner_沈砚",
+        "speaker": "沈砚",
+        "text": null,
+        "url": null
+      }
+    ]
+  },
+  "acts": [
+    {
+      "id": "act_1",
+      "title": "起势",
+      "summary": "世界与人物登场，主要冲突浮现",
+      "chapter_ids": []
+    },
+    {
+      "id": "act_2",
+      "title": "承转",
+      "summary": "冲突升级，各方立场明确，产生关键抉择",
+      "chapter_ids": []
+    },
+    {
+      "id": "act_3",
+      "title": "合",
+      "summary": "冲突解决 / 结局分化",
+      "chapter_ids": []
+    }
+  ],
+  "chapters": [
+    {
+      "id": "c_prologue",
+      "act_id": "act_1",
+      "title": "序幕",
+      "summary": null
+    },
+    {
+      "id": "c_b_truth_intro",
+      "act_id": "act_2",
+      "title": "追寻真相 · 引入",
+      "summary": null
+    },
+    {
+      "id": "c_b_truth_climax",
+      "act_id": "act_3",
+      "title": "追寻真相 · 高潮",
+      "summary": null
+    },
+    {
+      "id": "c_b_love_intro",
+      "act_id": "act_2",
+      "title": "情感抉择 · 引入",
+      "summary": null
+    },
+    {
+      "id": "c_b_love_climax",
+      "act_id": "act_3",
+      "title": "情感抉择 · 高潮",
+      "summary": null
+    },
+    {
+      "id": "c_b_revenge_intro",
+      "act_id": "act_2",
+      "title": "复仇之路 · 引入",
+      "summary": null
+    },
+    {
+      "id": "c_b_revenge_climax",
+      "act_id": "act_3",
+      "title": "复仇之路 · 高潮",
+      "summary": null
+    }
+  ],
+  "metadata": {
+    "schema_version": "1.2",
+    "branch_count": 3,
+    "node_count": 21,
+    "ending_count": 3,
+    "item_count": 6,
+    "scene_count": 2,
+    "bgm_count": 2,
+    "cg_count": 12,
+    "voiceover_count": 1,
+    "act_count": 3,
+    "chapter_count": 7,
+    "staging_tier": "semi-dynamic",
+    "consistency": {
+      "passed": true,
+      "issues": [],
+      "duplicate_branch_pairs": [],
+      "missing_hierarchy": [],
+      "dangling_item_refs": [],
+      "condition_var_issues": []
+    }
+  }
+}
