@@ -682,15 +682,22 @@ v1.1 全部塞在 dialogue/narration 里，前端只能靠内容里的关键字/
 
 ```bash
 # 1. 解压
+cd ~/Downloads
 unzip interactive-manhua-agent.zip
 cd interactive-manhua-agent
 
 # 2. （可选）创建虚拟环境
 python3 -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
+source .venv/bin/activate
 
-# 3. 安装依赖
-pip install -r requirements.txt
+# 3. 升级 pip + 装依赖 + 装本地包（三步连跑）
+pip install --upgrade pip && pip install -r requirements.txt && pip install -e src/
+# 验证环节（仅验收可用性阶段使用）：
+python -m manhua_agent.cli \
+  --mode keywords \
+  --keywords "校园,推理,双女主" \
+  --dry-run \
+  --verbose
 
 # 4. 配置 API Key
 cp .env.example .env
